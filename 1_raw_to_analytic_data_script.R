@@ -44,3 +44,13 @@ affective_commitment <- psych::alpha(as.data.frame(affective_commitment_items),c
 
 #Data Frame for Analytic Data
 analytic_data <- cbind(categorical_variables,agreeableness,extroversion,affective_commitment)
+
+#Save analytic data as .Rdata to preserve factor labels
+save(analytic_data,file="study1_analytic_data.RData")
+
+#Save as CSV to preserve labels and factor labels (tidyverse)
+write_csv(analytic_data,path="study1_analytic_data.csv")
+
+#Save as SAV aka SPSS data file (haven)
+library(haven)
+write_sav(analytic_data,path="study1_analytic_data.sav")
