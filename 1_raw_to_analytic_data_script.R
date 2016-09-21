@@ -36,3 +36,6 @@ affective_commitment_items[is_bad_value] <- NA
 agreeableness_items <- mutate(agreeableness_items,A5=6-A5)
 affective_commitment_items <- mutate(affective_commitment_items,AC4=8-A4)
 affective_commitment_items <- mutate(affective_commitment_items,AC5=8-A5)
+
+#Data Frame for Analytic Data
+analytic_data <- cbind(categorical_variables,agreeableness,extroversion,affective_commitment)
