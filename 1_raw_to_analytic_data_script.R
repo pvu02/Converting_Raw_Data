@@ -34,8 +34,13 @@ affective_commitment_items[is_bad_value] <- NA
 
 # Correcting for Reverse-Key Items
 agreeableness_items <- mutate(agreeableness_items,A5=6-A5)
-affective_commitment_items <- mutate(affective_commitment_items,AC4=8-A4)
-affective_commitment_items <- mutate(affective_commitment_items,AC5=8-A5)
+affective_commitment_items <- mutate(affective_commitment_items,AC4=8-AC4)
+affective_commitment_items <- mutate(affective_commitment_items,AC5=8-AC5)
+
+#Scale scores
+agreeableness <- psych::alpha(as.data.frame(agreeableness_items),check.keys=FALSE)$scores
+extroversion <- psych::alpha(as.data.frame(extroversion_items),check.keys=FALSE)$scores
+affective_commitment <- psych::alpha(as.data.frame(affective_commitment_items),check.keys=FALSE)$scores
 
 #Data Frame for Analytic Data
 analytic_data <- cbind(categorical_variables,agreeableness,extroversion,affective_commitment)
